@@ -25,7 +25,6 @@ function updateQRCode() {
         name: document.getElementById('sname').innerText,
         dep: document.getElementById('sdep').innerText,
         roll: document.getElementById('sroll').innerText,
-        shift: document.getElementById('ssem').innerText,
         shift: document.getElementById('sshift').innerText,
     };
 
