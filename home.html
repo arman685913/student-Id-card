@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Tailwind CSS & DaisyUI -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" />
+  
+  <style>
+    .font-sora {
+      font-family: "Sora", sans-serif;
+    }
+  </style>
+    <link rel="shortcut icon" href="IMG/logo.png" type="image/x-icon">
+    <title>Id-Card Homepage</title>
+</head>
+<body class="font-sora bg-gradient-to-tr from-blue-50 to-green-50 min-h-screen">
+      <!-- Navbar -->
+  <header class="lg:max-w-4xl mx-auto w-full">
+    <div class="flex bg-white shadow-md items-center lg:justify-between justify-center lg:py-4 py-3 lg:px-8 px-2 rounded-b-xl">
+      
+      <!-- Mobile Dropdown -->
+      <div class="lg:hidden dropdown relative">
+        <!-- Dropdown Toggle Button -->
+        <label tabindex="0" class="btn btn-ghost btn-circle focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+        
+        <!-- Dropdown Menu -->
+        <ul  class="dropdown-content menu bg-white rounded-xl mt-2 w-48 shadow-lg border border-gray-200 p-2 transition-all duration-300 z-10 gap-3">
+          <li>
+            <button id="download2"  onclick="window.location.href='download.html'" class="flex items-center gap-2 px-3 py-2 rounded bg-green-500 disabled:text-gray-700 disabled:bg-gray-300" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <title>Download</title>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2             M7 10l5 5 5-5
+                M12 15V3" />
+              </svg>
+              Download
+            </button>
+          </li>
+          <li>
+            <a target="_blank" href="index.html" class="flex items-center gap-2 px-3 py-2 rounded bg-red-400 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+        </svg>
+        Logout
+      </a>
+    </li>
+  </ul>
+    </div>
+    <!-- Title -->
+      <div class="flex items-center gap-2">
+        <img class="lg:w-9 w-7" src="IMG/logo.png" alt="Logo">
+        <span class="lg:text-2xl text-lg font-semibold text-gray-800">Chittagong Polytechnic Institute</span>
+      </div>
+      <!-- Download Button -->
+      <div class="lg:flex gap-4 hidden">
+        <button id="download" onclick="window.location.href='download.html'" class=" lg:block px-4 py-2 bg-green-500 text-white rounded-md shadow-sm disabled:bg-green-200 disabled:text-gray-500" disabled>
+          Download
+        </button>
+        <button id="logout" class=" lg:block px-4 py-2 bg-red-500 text-white rounded-md shadow-sm">Logout</button>    
+      </div>
+    </div>
+  </header>
+
+<!-- form -->
+<main class="max-w-4xl mx-auto bg-gradient-to-tr from-green-50 to-blue-100 shadow-md p-6 my-5 rounded-lg">
+  <h1 class="text-xl font-semibold text-center text-blue-700 mb-4">Student ID Card Information</h1>
+  <div action="" id="idForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="md:col-span-2">
+        <label class="block font-semibold ">Academic Info.</label>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+        <input id="name" type="text" name="name" class="input input-bordered w-full" placeholder="Enter your full name" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Department</label>
+        <select id="dep" class="select input-bordered w-full" required>
+          <option disabled selected>Select your technology</option>
+          <option>Computer Sc.</option>
+          <option>Civil</option>
+          <option>Electrical</option>
+          <option>Electronics</option>
+          <option>Power</option>
+          <option>Environmental</option>
+          <option>Mechanical</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Roll Number</label>
+        <input id="roll" type="number" name="roll" class="input input-bordered w-full" placeholder="e.g. 123456" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Session</label>
+        <input id="ses" type="text" name="session" class="input input-bordered w-full" placeholder="e.g. 21-22" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Semester</label>
+        <select id="sem" name="sem" class="select select-bordered w-full">
+          <option disabled selected>Select your semester</option>
+          <option>1st</option>
+          <option>2nd</option>
+          <option>3rd</option>
+          <option>4th</option>
+          <option>5th</option>
+          <option>6th</option>
+          <option>7th</option>
+          <option>8th</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Shift</label>
+        <select id="shift" name="shift" class="select select-bordered w-full">
+          <option disabled selected>Select your shift</option>
+          <option>1st-A1</option>
+          <option>2nd-B1</option>
+          <option>1st-A2</option>
+          <option>2nd-B2</option>
+        </select>
+      </div>
+      
+      <div >
+        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+        <input id="phone" type="number" name="phone" class="input input-bordered w-full" placeholder="+880..." required>
+      </div>
+
+      <div >
+          <label class="block text-sm font-medium text-gray-700 mb-1">Upload Photo</label>
+          <input id="photoInput" accept="image/*" type="file">
+        </div>
+      
+      <div class="md:col-span-2">
+        <label class="block font-semibold ">Personal Info.</label>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Father's Name</label>
+        <input id="fname" type="text" name="name" class="input input-bordered w-full" placeholder="Enter your father's name" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Mother's Name</label>
+        <input id="mname" type="text" name="name" class="input input-bordered w-full" placeholder="Enter your mother's name" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Blood Group</label>
+        <select id="bg" name="BG" class="select select-bordered w-full">
+          <option disabled selected>Select your blood group</option>
+          <option >O+</option>
+          <option >O-</option>
+          <option >A+</option>
+          <option >A-</option>
+          <option >B+</option>
+          <option >B-</option>
+          <option >AB+</option>
+          <option >AB-</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+        <input id="date" type="date" name="dob" class="input input-bordered w-full" required>
+      </div>
+
+      <div class="md:col-span-2">
+        <label class="block font-semibold ">Address</label>
+      </div>
+      <div >
+        <label class="block text-sm font-medium text-gray-700 mb-1">Village</label>
+        <input id="vl" type="text" name="Village" class="input input-bordered w-full" placeholder="Enter your village name" required>
+      </div>
+      <div >
+        <label class="block text-sm font-medium text-gray-700 mb-1">Post office</label>
+        <input id="pO" type="text" name="Post office" class="input input-bordered w-full" placeholder="Enter your post office name" required>
+      </div>
+      <div >
+        <label class="block text-sm font-medium text-gray-700 mb-1">Upazila</label>
+        <input id="up" type="text" name="upazila" class="input input-bordered w-full" placeholder="Enter your upazila name" required>
+      </div>
+      <div >  
+        <label class="block text-sm font-medium text-gray-700 mb-1">District</label>
+        <select id="dist" class="select input-bordered w-full" required>
+          <option disabled selected>Select your district</option>
+          <option>Bagerhat</option>
+          <option>Bandarban</option>
+          <option>Barguna</option>
+          <option>Barishal</option>
+          <option>Bogura</option>
+          <option>Brahmanbaria</option>
+          <option>Chandpur</option>
+          <option>Chapainawabganj</option>
+          <option>Chattogram</option>
+          <option>Chuadanga</option>
+          <option>Cox's Bazar</option>
+          <option>Cumilla</option>
+          <option>Dhaka</option>
+          <option>Dinajpur</option>
+          <option>Faridpur</option>
+          <option>Feni</option>
+          <option>Gaibandha</option>
+          <option>Gazipur</option>
+          <option>Gopalganj</option>
+          <option>Habiganj</option>
+          <option>Jamalpur</option>
+          <option>Jashore</option>
+          <option>Jhalokati</option>
+          <option>Jhenaidah</option>
+          <option>Joypurhat</option>
+          <option>Khagrachhari</option>
+          <option>Khulna</option>
+          <option>Kishoreganj</option>
+          <option>Kurigram</option>
+          <option>Kushtia</option>
+          <option>Lakshmipur</option>
+          <option>Lalmonirhat</option>
+          <option>Madaripur</option>
+          <option>Magura</option>
+          <option>Manikganj</option>
+          <option>Meherpur</option>
+          <option>Moulvibazar</option>
+          <option>Munshiganj</option>
+          <option>Mymensingh</option>
+          <option>Naogaon</option>
+          <option>Narail</option>
+          <option>Narayanganj</option>
+          <option>Narsingdi</option>
+          <option>Natore</option>
+          <option>Netrokona</option>
+          <option>Nilphamari</option>
+          <option>Noakhali</option>
+          <option>Pabna</option>
+          <option>Panchagarh</option>
+          <option>Patuakhali</option>
+          <option>Pirojpur</option>
+          <option>Rajbari</option>
+          <option>Rajshahi</option>
+          <option>Rangamati</option>
+          <option>Rangpur</option>
+          <option>Satkhira</option>
+          <option>Shariatpur</option>
+          <option>Sherpur</option>
+          <option>Sirajganj</option>
+          <option>Sunamganj</option>
+          <option>Sylhet</option>
+          <option>Tangail</option>
+          <option>Thakurgaon</option>
+        </select>
+
+      </div>
+      </div>
+      <div class="md:col-span-2 text-center mt-4">
+        <button id="generateBtn" type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition">
+          Generate ID Card
+        </button>
+      </div>
+    </div>
+</main>
+  
+  <!-- Footer -->
+  <footer class="lg:max-w-4xl mx-auto w-full print:hidden">
+    <div class="footer footer-center bg-white text-gray-700 p-4 rounded-t-xl shadow-inner">
+      <aside class="space-y-2 text-sm">
+        <p class="font-medium">
+          © <span id="year"></span> — All Rights Reserved by 
+          <span class="font-semibold text-blue-700">Chittagong Polytechnic Institute</span>
+        </p>
+
+        <div class="w-40 mx-auto border-t border-blue-400"></div>
+        
+        <p class="italic text-gray-600">
+          Courtesy: <span class="text-blue-600 font-medium">CST Batch-60 (A2)</span>
+        </p>
+      </aside>
+    </div>
+  </footer>
+
+  <!-- Year auto update -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="main.js"></script>
+  <script src="card.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

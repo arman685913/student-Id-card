@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS & DaisyUI -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" />
+  
+  <style>
+    .font-sora {
+      font-family: "Sora", sans-serif;
+    }
+  </style>
+  <link rel="shortcut icon" href="IMG/logo.png" type="image/x-icon">
+<title>ID-Card Download</title>
+</head>
+
+<body class="font-sora bg-gradient-to-tr from-blue-50 to-green-50 min-h-screen print:w-[21cm] print:h-[10cm] print:p-4 max-h-screen">
+   <!-- navbar -->
+  <header class="lg:max-w-4xl mx-auto print:hidden mb-5">
+  <div class="flex bg-base-100 shadow-md items-center lg:justify-between justify-center lg:py-4 py-3 lg:px-8 px-2 rounded-b-xl">
+    <!-- Left Nav -->
+    <div class="gap-4 flex">
+      <button onclick="window.location.href='home.html'" class="hidden lg:block px-4 py-2 bg-green-500 text-white rounded-md shadow-sm">Home</button>
+      <button onclick="window.location.href='index.html'" class="hidden lg:block px-4 py-2 bg-red-500 text-white rounded-md shadow-sm">Logout</button>    
+    </div>
+    
+    <!-- Mobile Dropdown -->
+    <div class="lg:hidden dropdown relative">
+      <!-- Dropdown Toggle Button -->
+      <label tabindex="0" class="btn btn-ghost btn-circle focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+      
+  <!-- Dropdown Menu -->
+  <ul  class="dropdown-content menu bg-white rounded-xl mt-2 w-48 shadow-lg border border-gray-200 p-2 transition-all duration-300 z-10">
+    <li>
+      <a href="home.html" class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-100 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M13 5v6h6" />
+        </svg>
+        Home
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="index.html" class="flex items-center gap-2 px-3 py-2 rounded hover:bg-red-100 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+        </svg>
+        Logout
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+    <!-- Logo & Title -->
+    <div class="flex items-center gap-2 ">
+      <img class="lg:w-8 w-6" src="IMG/logo.png" alt="Logo">
+      <span class="lg:text-2xl text-lg font-semibold">Chittagong Polytechnic Institute</span>
+    </div>
+
+    <!-- Print Button -->
+    <div class="hidden lg:block">
+      <button onclick="window.print()" class=" lg:block px-4 py-2 bg-green-500 text-white rounded-md shadow-sm">
+        Print / Save as PDF
+      </button>
+    </div>
+  </div>
+</header>
+<!-- main -->
+<main class="p-5 pt-0 text-center mx-auto bg-gradient-to-tr from-green-50 to-blue-100 lg:max-w-4xl rounded-lg print:bg-white shadow-md">
+
+  <div class="pt-4">
+    <h1 class="font-semibold text-lg w-60 mx-auto bg-blue-300 p-1 rounded-lg shadow-md print:hidden ">
+      Front Side
+    </h1>
+  </div>
+
+  <!-- Front Side -->
+  <section class="relative w-80 h-52 mx-auto bg-white shadow-sm rounded-sm border border-gray-200 overflow-hidden my-4">
+    
+    <!-- Header -->
+    <div class="bg-blue-600 flex justify-center items-center gap-2">
+      <img class="w-[22px]" src="IMG/logo.png" alt="">
+      <h1 class="text-white text-sm py-1 font-semibold">Chittagong Polytechnic Institute</h1>
+    </div>
+
+    <p class="p-1 border border-slate-300 rounded-lg mx-24 text-sm font-medium mt-1.5 mb-2.5">Identity Card</p>
+
+    <!-- Faded Logo -->
+    <img class="absolute left-24 top-9 w-32 opacity-10" src="IMG/logo.png" alt="Logo" />
+
+    <!-- Profile Info -->
+    <div class="flex items-center gap-6 pl-5">
+      <img id="idPhoto" class="w-16 h-[70px] object-cover rounded-sm border border-blue-400" alt="Student Photo"/>
+      <div class="text-left text-sm leading-snug">
+        <p class="font-semibold text-blue-700">Name: <span id="sname"></span></p>
+        <p class="text-sm">Department: <span id="sdep"></span></p>
+        <div class="flex gap-2.5">
+          <p class="text-sm">Roll: <span id="sroll"></span></p>
+          <p class="text-sm">Semester: <span id="ssem" class="text-xs"></span></p>
+        </div>
+        <div class="flex gap-3">
+          <p  class="text-[13px]">Session: <span id="sses"></span></p>
+          <p  class="text-[13px]">Shift: <span id="sshift"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="absolute bottom-1 w-full text-xs text-gray-600">
+      <div class="flex justify-between px-3 items-center">
+        <p class="text-[11px] italic">Signature of Principal</p>
+        <p class="text-[11px] italic">Signature of Student</p>
+      </div>
+    </div>
+  </section>
+
+  <h1 class="font-semibold text-lg mb-4 bg-blue-300 p-1 rounded-lg shadow-md w-60 mx-auto print:hidden">
+    Back Side
+  </h1>
+
+  <!-- Back Side -->
+  <section class="relative w-80 h-52 mx-auto bg-white shadow-sm rounded-sm border border-gray-200 overflow-hidden">
+    <!-- Faded Logo -->
+    <img class="absolute left-24 top-10 w-32 opacity-10" src="IMG/logo.png" alt="Logo" />
+
+    <!-- Info Section -->
+    <div class="relative z-10 text-left p-3 text-sm">
+      <h2 class="font-semibold text-blue-700 my-1">Important Information:</h2>
+      <div class="text-gray-700 text-xs leading-4 pl-1">
+        <p>Father's Name: <span id="fsname"></span></p>
+        <p>Mother's Name: <span id="msname"></span></p>
+        <p>Blood Group: <span id="sbg"></span></p>
+        <p>Date of Birth: <span id="sdate"></span></p>
+      </div>
+
+      <div class="flex justify-between items-center mt-5">
+        <div>
+          <p class="text-sm font-semibold">Address</p>
+          <div class="flex gap-1">
+            <p class="text-[11px] leading-3">Village: <span id="svl"></span></p>
+            <p class="text-[11px] leading-3">P.O: <span id="spO"></span></p>
+          </div>
+          <div class="gap-1">
+            <p class="text-[11px] leading-3">Upazila: <span id="sup"></span>,</p>
+            <p class="text-[11px] leading-3"><span id="sdist"></span>.</p>
+          </div>
+          <p  class="text-xs leading-3">Phone: <span id="sphone"></span></p>
+        </div>
+
+        <!-- QR Code -->
+        <div id="qrcode" class="mt-2 w-16 h-16"></div>
+      </div>
+    </div>
+  </section>
+
+  <button onclick="window.print()" class="print:hidden lg:hidden mt-4 px-4 py-2 bg-green-500 text-white rounded-md shadow-sm">
+    Print / Save as PDF
+  </button>
+
+</main>
+<!-- Footer -->
+<footer class="lg:max-w-4xl mx-auto mt-5 print:hidden">
+  <div class="footer footer-center bg-white text-gray-700 p-4 rounded-t-xl shadow-inner">
+    <aside class="space-y-2 text-sm">
+      <p class="font-medium">
+        © <span id="year"></span> — All Rights Reserved by 
+        <span class="font-semibold text-blue-700">Chittagong Polytechnic Institute</span>
+      </p>
+
+      <div class="w-40 mx-auto border-t border-blue-400"></div>
+
+      <p class="italic text-gray-600">
+        Courtesy: <span class="text-blue-600 font-medium">CST Batch-60 (A2)</span>
+      </p>
+    </aside>
+  </div>
+</footer>
+
+<!-- Year auto update -->
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<!-- qr code -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+<script src="card.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

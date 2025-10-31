@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <!-- Tailwind CSS & DaisyUI -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" />
+  
+  <style>
+    .font-sora {
+      font-family: "Sora", sans-serif;
+    }
+    </style>
+    <title>ID-Card Login</title>
+  <link rel="shortcut icon" href="IMG/logo.png" type="image/x-icon">
+</head>
+
+<body class="font-sora bg-gradient-to-tr from-blue-50 to-green-50 min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <header class="lg:max-w-4xl mx-auto w-full">
+      <div class="flex flex-col bg-white shadow-md items-center justify-center lg:py-4 py-3 px-2 rounded-b-xl">
+        <div class="flex items-center gap-2">
+          <img class="lg:w-9 w-7" src="IMG/logo.png" alt="Logo">
+          <span class="lg:text-2xl text-lg font-semibold text-gray-800">Chittagong Polytechnic Institute</span>
+        </div>
+        <p class="font-semibold lg:text-lg">Id Card Generator</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+      <main class="flex flex-grow justify-center items-center bg-gradient-to-tr from-green-50 to-blue-100 lg:max-w-4xl rounded-lg mx-auto my-4">
+        <div class="w-full max-w-sm sm:p-6 p-4">
+          <fieldset class="fieldset bg-white border border-gray-200 rounded-xl p-6 shadow-md">
+            <legend class="fieldset-legend text-lg font-semibold text-blue-700 px-2">Login</legend>
+    
+            <label class="label text-sm font-medium text-gray-700 mt-2">Email</label>
+            <input id="email" type="email" class="input input-bordered w-full" placeholder="Enter your email" required />
+    
+            <label class="label text-sm font-medium text-gray-700 mt-3">Password</label>
+            <input id="password" type="password" class="input input-bordered w-full" placeholder="Enter your password" required/>
+    
+            <button id="loginBtn" class="btn bg-blue-700 text-white w-full mt-6">Login</button>
+          </fieldset>
+        </div>
+      </main>
+  
+    <!-- Footer -->
+    <footer class="lg:max-w-4xl mx-auto w-full print:hidden">
+      <div class="footer footer-center bg-white text-gray-700 p-4 rounded-t-xl shadow-inner">
+        <aside class="space-y-2 text-sm">
+          <p class="font-medium">
+            © <span id="year"></span> — All Rights Reserved by 
+            <span class="font-semibold text-blue-700">Chittagong Polytechnic Institute</span>
+          </p>
+  
+          <div class="w-40 mx-auto border-t border-blue-400"></div>
+  
+          <p class="italic text-gray-600">
+            Courtesy: <span class="text-blue-600 font-medium">CST Batch-60 (A2)</span>
+          </p>
+        </aside>
+      </div>
+    </footer>
+
+  <!-- Year auto update -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <!-- js -->
+  <script src="login.js"></script>
+</body>
+</html>
