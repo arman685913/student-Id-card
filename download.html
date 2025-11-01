@@ -9,12 +9,26 @@
   
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" />
-  
   <style>
-    .font-sora {
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .print\:bg-blue-600 {
+      background-color: #2563eb !important; 
+    }
+
+    .print\:hidden {
+      display: none !important;
+    }
+  }
+  .font-sora {
       font-family: "Sora", sans-serif;
     }
-  </style>
+</style>
+
   <link rel="shortcut icon" href="IMG/logo.png" type="image/x-icon">
 <title>ID-Card Download</title>
 </head>
