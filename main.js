@@ -57,7 +57,13 @@ document.getElementById('generateBtn').addEventListener('click', () =>{
         localStorage.setItem('vl', vl.value);     
         localStorage.setItem('pO', pO.value);     
         localStorage.setItem('up', up.value);     
-        localStorage.setItem('dist', dist.value);     
+        localStorage.setItem('dist', dist.value);
+        
+        document.getElementById('generateBtn').classList.add('hidden');
+
+        document.getElementById('downloadM').classList.remove('hidden');
+        document.getElementById('downloadM').classList.add('inline');
+        
         downloadBtn.removeAttribute('disabled');
         downloadBtn2.removeAttribute('disabled');
         alert('Generate Id Card Successfully');
